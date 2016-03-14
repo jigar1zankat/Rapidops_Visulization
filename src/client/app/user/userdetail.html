@@ -1,0 +1,29 @@
+<div>
+<table border="1">
+    <tr>
+    <td>firstname:</td>
+    <td>lastname:</td>
+    <td>email:</td>
+        <td>events</td>
+    </tr>
+    <tr ng-repeat="all in alluser">
+     <td>{{all.first_name}}</td>
+        <td> {{all.last_name}}</td>
+       <td>{{all.email}}</td>
+        <td><input type="button" value="delete" ng-click="remove(all._id)" ><input type="button" value="update" ui-sref="app.users.update({id:all._id})"></td>
+
+    </tr>
+</table>
+</div>
+<script>
+    function remove(a) {
+        if(confirm("ok")){
+            console.log('clicked on okay');
+        }
+
+
+        else {
+            console.log('clicked on cancel');
+        }
+    }
+</script>
