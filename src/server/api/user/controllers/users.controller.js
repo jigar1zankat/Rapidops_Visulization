@@ -51,7 +51,6 @@ People.find({$or: [ { "first_name":  people_name  }, { "last_name":  people_name
 };
 
 
-
 exports.getOrganizationByLocation = function(req, res) {
     var organization_city=req.query.city,
     page=req.query.page;
