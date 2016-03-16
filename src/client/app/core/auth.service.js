@@ -10,6 +10,8 @@
   function Auth($location, $rootScope, $http, $q) {
 
       var authService = {
+          getPeopleByLocation:getPeopleByLocation,
+          getOrganizationByLocation:getOrganizationByLocation,
           getPeopleByName: getPeopleByName,
           getOrganizationByName:getOrganizationByName
       };
@@ -19,9 +21,10 @@
        * Authenticate user and
        */
 
-      function getPeopleByName(name, callback) {
-          var path = '/users/login';
-          $http.post(path, name).success(function (data) {
+
+      function getOrganizationByLocation(location,page, callback) {
+          var path = '/users/organization_city';
+          $http.get(path +"?city="+location+"&page="+page).success(function (data) {
               callback(undefined, data);
 
           }).error(function (error, status) {
@@ -30,9 +33,35 @@
           });
       }
 
-      function getOrganizationByName(location, callback) {
-          var path = '/users/login';
-          $http.post(path, location).success(function (data) {
+
+
+      function getPeopleByLocation(location,page,callback) {
+          var path = '/users/people_city';
+          $http.get(path +"?city="+location+"&page="+page).success(function (data) {
+              callback(undefined, data);
+
+          }).error(function (error, status) {
+
+              callback(error, status);
+          });
+      }
+
+
+
+      function getPeopleByName(name,page,callback) {
+          var path = '/users/people';
+          $http.get(path +"?name="+name+"&page="+page).success(function (data) {
+              callback(undefined, data);
+
+          }).error(function (error, status) {
+
+              callback(error, status);
+          });
+      }
+
+      function getOrganizationByName(name,page, callback) {
+          var path = '/users/organization';
+          $http.get(path +"?name="+name+"&page="+page).success(function (data) {
               callback(undefined, data);
 
           }).error(function (error, status) {

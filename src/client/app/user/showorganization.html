@@ -1,0 +1,102 @@
+<div>
+
+<div class="">
+
+
+    <div class="container">
+        <div class="panel panel-default" style="margin-top: 10px">
+            <div class="panel-heading">
+                <h2 align="center">Enter Your Search Criteria</h2>
+
+            </div>
+            <div class="panel-body">
+                <div class="col-md-4 col-lg-offset-2">
+                    <input type="text" id="Field1" placeholder="Organization Name" ng-model="name">
+                    <button type="button" class="btn btn-info span1" ng-click="org_name(name,currentPage+1)">Search</button>
+                </div>
+
+                <div class="col-lg-offset-2">
+                    <input type="text" id="Field2" placeholder="Region by City or Country" ng-model="location">
+                    <button type="button" class="btn btn-info span1" ng-click="org_location(location,currentPage+1)">Search</button>
+                </div>
+
+
+
+                <!--<ul>-->
+                    <!--<li ng-repeat="item in data | startFrom:currentPage*pageSize | limitTo:pageSize">-->
+                        <!--{{item}}-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+
+
+
+
+                <table class="table" style="margin-top: 25px">
+                    <tr>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Primary_role
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Homepage_Domain
+                        </th>
+                        <th>
+                            Location_City
+                        </th>
+                        <th>
+                            Location_Region
+                        </th>
+                        <th>
+                            Location_Country
+                        </th>
+                    </tr>
+                    <tr ng-repeat="org in organizations | startFrom:currentPage*pageSize | limitTo:pageSize">
+                        <td>
+                            {{org.type}}
+                        </td>
+                        <td>
+                            {{org.primary_role}}
+                        </td>
+                        <td>
+                            {{org.name}}
+                        </td>
+                        <td>
+                            {{org.homepage_domain}}
+                        </td>
+                        <td>
+                           {{ org.location_city}}
+                        </td>
+                        <td>
+                          {{  org.location_region}}
+                        </td>
+                        <td>
+                            {{org.location_country_code}}
+                        </td>
+                    </tr>
+                </table>
+                <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                    Previous
+                </button>
+                {{currentPage+1}}/{{numberOfPages()}}
+                <button ng-disabled="currentPage >= organizations.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                    Next
+                </button>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+</div>
