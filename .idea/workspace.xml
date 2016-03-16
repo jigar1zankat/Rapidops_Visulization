@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e98b794-a8ba-4f9a-84c1-2f61ffcde191" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/server/api/user/models/users.model.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/app/app.config.js" afterPath="$PROJECT_DIR$/src/client/app/app.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/app/core/auth.service.js" afterPath="$PROJECT_DIR$/src/client/app/core/auth.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/app/user/header.html" afterPath="$PROJECT_DIR$/src/client/app/user/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/index.html" afterPath="$PROJECT_DIR$/src/client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/api/user/controllers/users.controller.js" afterPath="$PROJECT_DIR$/src/server/api/user/controllers/users.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/app/user/home.html" afterPath="$PROJECT_DIR$/src/client/app/user/home.html" />
     </list>
     <ignored path="Rapidops_Visulization.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +37,8 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/app/user/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3886926">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.37102473">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -927,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/app/user/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3886926">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.37102473">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
