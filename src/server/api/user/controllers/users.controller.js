@@ -147,4 +147,44 @@ function getDatas(counter){ Organization.find( { "name": organization_name  },fu
 
 };
 
+exports.getOrgById = function(req, res) {
+    var orgId = req.params.id;
+
+    Organization.findById(orgId, function(err, org) {
+        if (err) return res.status(500).send(err);
+        if (!org) {
+            res.status(401).json({
+                'status': 'failure',
+                'message':"Org doesn't exist"
+            });
+        }
+        else {
+            res.status(200).json({
+                'status': 'success',
+                'data':org
+            });
+        }
+    });
+};
+
+exports.getPplById = function(req, res) {
+    var pplId = req.params.id;
+    
+    People.findById(pplId, function(err, ppl) {
+        if (err) return res.status(500).send(err);
+        if (!ppl) {
+            res.status(401).json({
+                'status': 'failure',
+                'message':"People doesn't exist"
+            });
+        }
+        else {
+            res.status(200).json({
+                'status': 'success',
+                'data':ppl
+            });
+        }
+    });
+};
+
 

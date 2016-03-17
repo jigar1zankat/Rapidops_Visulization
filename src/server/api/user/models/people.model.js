@@ -6,7 +6,6 @@ var Schema = mongoose.Schema;
  * @type {*|Schema}
  */
 var UserSchema = new Schema({
-    "_id" :String,
     "crunchbase_uuid" : String,
     "type" :String ,
     "first_name" :String ,
@@ -21,8 +20,8 @@ var UserSchema = new Schema({
     "location_country_code" :String ,
     "title" : String,
     "organization" : String,
-    "organization_crunchbase_url" :String,
-    "funding_round_name":String
+    "organization_crunchbase_url" :String
+    //"funding_round_name":String
 });
 /**
  * Encrypting the user password.

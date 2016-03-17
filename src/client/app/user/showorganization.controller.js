@@ -83,16 +83,6 @@
             }
         };
 
-        //$scope.start = function() {
-        //    cfpLoadingBar.start();
-        //};
-        //
-        //$scope.complete = function () {
-        //    cfpLoadingBar.complete();
-        //};
-        ////assuming this should start the loader
-        //$scope.start();
-
     }
     function startFrom() {
         return function (input, start) {

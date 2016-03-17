@@ -72,6 +72,30 @@
                     }
                 }
             })
+            .state('app.organizationdata',{
+                url:'/organizationdata/:id',
+                views:{
+                    'header': {
+                        templateUrl:'app/user/header.html'
+                    },
+                    'main': {
+                        templateUrl: 'app/user/organizationdata.html',
+                        controller: 'OrganizationDataController'
+                    }
+                }
+            })
+            .state('app.peopledata',{
+                url:'/peopledata/:id',
+                views:{
+                    'header': {
+                        templateUrl:'app/user/header.html'
+                    },
+                    'main': {
+                        templateUrl: 'app/user/peopledata.html',
+                        controller: 'PeopleDataController'
+                    }
+                }
+            })
     }
     function run($rootScope, $location, Auth, $cookies, $scope, $cookieStore ) {
 

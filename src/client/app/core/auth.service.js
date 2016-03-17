@@ -13,7 +13,9 @@
           getPeopleByLocation:getPeopleByLocation,
           getOrganizationByLocation:getOrganizationByLocation,
           getPeopleByName: getPeopleByName,
-          getOrganizationByName:getOrganizationByName
+          getOrganizationByName:getOrganizationByName,
+          getorg:getorg,
+          getppl:getppl
       };
 
       return authService;
@@ -25,8 +27,7 @@
       function getOrganizationByLocation(location,page, callback) {
           var path = '/users/organization_city';
           $http.get(path +"?city="+location+"&page="+page).success(function (data) {
-             // $scope.complete();
-              callback(undefined, data);
+             callback(undefined, data);
 
           }).error(function (error, status) {
 
@@ -39,7 +40,6 @@
       function getPeopleByLocation(location,page,callback) {
           var path = '/users/people_city';
           $http.get(path +"?city="+location+"&page="+page).success(function (data) {
-              $scope.complete();
               callback(undefined, data);
 
           }).error(function (error, status) {
@@ -53,7 +53,7 @@
       function getPeopleByName(name,page,callback) {
           var path = '/users/people';
           $http.get(path +"?name="+name+"&page="+page).success(function (data) {
-            //  $scope.complete();
+
               callback(undefined, data);
 
           }).error(function (error, status) {
@@ -65,11 +65,31 @@
       function getOrganizationByName(name,page, callback) {
           var path = '/users/organization';
           $http.get(path +"?name="+name+"&page="+page).success(function (data) {
-             // $scope.complete();
+
               callback(undefined, data);
 
           }).error(function (error, status) {
 
+              callback(error, status);
+          });
+      }
+
+      function getorg(id, callback) {
+          console.log("id in get ORG",id);
+          var path = '/users/org/'+id;
+          $http.get(path).success(function (data) {
+              callback(undefined, data);
+          }).error(function(error, status) {
+              callback(error, status);
+          });
+      }
+
+      function getppl(id, callback) {
+          console.log("id in get ppl",id);
+          var path = '/users/ppl/'+id;
+          $http.get(path).success(function (data) {
+              callback(undefined, data);
+          }).error(function(error, status) {
               callback(error, status);
           });
       }

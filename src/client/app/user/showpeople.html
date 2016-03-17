@@ -42,10 +42,14 @@
                         <th>
                             Organizations
                         </th>
+                        <th>
+                            Get Detail
+                        </th>
                     </tr>
                     <tr ng-repeat="ppl in peoples">
                         <td>
-                           {{ppl.type}}
+                            {{ppl.type}}
+
                         </td>
                         <td>
                           {{ ppl.first_name}}
@@ -65,11 +69,15 @@
                         <td>
                          {{ ppl.organization}}
                         </td>
+                        <td>
+                            <input type="button" value="Get Detail" ui-sref="app.peopledata({id:ppl._id})">
+                            <!--<a ui-sref="app.peopledata({id:ppl._id})">CLICK</a>-->
+                        </td>
                     </tr>
                 </table>
-                <h1 align="center" ng-show="!peoples[0]">Data Not Available</h1>
+                <!--<h1 align="center" ng-show="!peoples[0]">Data Not Available</h1>-->
 
-<div ng-show="peoples[0]">
+                <div ng-show="peoples[0]">
                 <button  ng-disabled="currentPage == 0" ng-click="identifire(currentPage-1)">
                     Previous
                 </button>
