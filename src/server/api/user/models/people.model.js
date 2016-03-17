@@ -42,4 +42,4 @@ UserSchema.methods.comparePassword = function (password) {
     return bcrypt.compareSync(password, user.password);
 };
 
-module.exports = mongoose.model('peoples', UserSchema);
+module.exports = mongoose.model('people', UserSchema);

@@ -5,26 +5,27 @@
         .module('MeanApp')
         .controller('ShowPeopleController', ShowPeopleCtrl).filter('startFrom',startFrom);
 
-    ShowPeopleCtrl.$inject = ['$scope', 'Auth', '$state', '$window','$cookieStore','$rootScope'];
+    ShowPeopleCtrl.$inject = ['$scope', 'Auth', '$state', '$window','$cookieStore','$rootScope' , 'cfpLoadingBar'];
 
-    function ShowPeopleCtrl($scope, Auth, $state, $window,$cookies,$rootScope) {
+    function ShowPeopleCtrl($scope, Auth, $state,cfpLoadingBar, $window,$cookies,$rootScope) {
         $scope.people = {};
         $scope.peoples = [];
         $scope.currentPage = 0;
         $scope.pageSize = 100;
         $scope.data = [];
         $scope.numberOfPages=function(){
-            return Math.ceil($scope.peoples.length/$scope.pageSize);
+
+            return Math.ceil($scope.counter/$scope.pageSize);
         };
 
 
-        $scope.people_name = function(name,page) {
-
+        $scope.people_name = function(page) {
+            if(page>=0){$scope.currentPage=page}else{ console.log("error in page")}
            // console.log("user",$scope.user);
            // $scope.submitted = true;
-
+            $scope.search_value = "name";
           //  if (form.$valid) {
-                Auth.getPeopleByName(name,page,function(err,data){
+                Auth.getPeopleByName($scope.name,page,function(err,data){
                     if(err)
                     {
                         console.log(err+ "err n data "  +data);
@@ -33,6 +34,7 @@
                     else {
                         console.log(" data "  ,data);
                         console.log('success');
+                        $scope.counter=data.count;
                         $scope.people=data.data;
                         $scope.peoples=data.data;
                         console.log("array of people by name",$scope.people);
@@ -45,13 +47,13 @@
             };
 
 
-        $scope.people_location = function(location,page) {
-
+        $scope.people_location = function(page) {
+            if(page>=0){$scope.currentPage=page}else{ console.log("error in page")}
             // console.log("user",$scope.user);
             // $scope.submitted = true;
-
+            $scope.search_value = "location";
             //  if (form.$valid) {
-            Auth.getPeopleByLocation(location,page,function(err,data){
+            Auth.getPeopleByLocation($scope.location,page,function(err,data){
                 if(err)
                 {
                     console.log(err+ "err n data "  +data);
@@ -60,6 +62,7 @@
                 else {
                     console.log(" data "  ,data);
                     console.log('success');
+                    $scope.counter=data.count;
                     $scope.people=data.data;
                     $scope.peoples=data.data;
                     $state.go('app.showpeople');
@@ -69,7 +72,27 @@
 
             });
         };
+        $scope.identifire=function(page) {
+            if($scope.search_value=="location"){
+                console.log("page in identifire",page);
+                $scope.people_location(page);
 
+            }
+            else{
+                $scope.people_name(page);
+
+            }
+        };
+
+        //$scope.start = function() {
+        //    cfpLoadingBar.start();
+        //};
+        //
+        //$scope.complete = function () {
+        //    cfpLoadingBar.complete();
+        //};
+        ////assuming this should start the loader
+        //$scope.start();
     }
     function startFrom() {
         return function (input, start) {

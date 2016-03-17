@@ -25,6 +25,7 @@
       function getOrganizationByLocation(location,page, callback) {
           var path = '/users/organization_city';
           $http.get(path +"?city="+location+"&page="+page).success(function (data) {
+             // $scope.complete();
               callback(undefined, data);
 
           }).error(function (error, status) {
@@ -38,6 +39,7 @@
       function getPeopleByLocation(location,page,callback) {
           var path = '/users/people_city';
           $http.get(path +"?city="+location+"&page="+page).success(function (data) {
+              $scope.complete();
               callback(undefined, data);
 
           }).error(function (error, status) {
@@ -51,6 +53,7 @@
       function getPeopleByName(name,page,callback) {
           var path = '/users/people';
           $http.get(path +"?name="+name+"&page="+page).success(function (data) {
+            //  $scope.complete();
               callback(undefined, data);
 
           }).error(function (error, status) {
@@ -62,6 +65,7 @@
       function getOrganizationByName(name,page, callback) {
           var path = '/users/organization';
           $http.get(path +"?name="+name+"&page="+page).success(function (data) {
+             // $scope.complete();
               callback(undefined, data);
 
           }).error(function (error, status) {

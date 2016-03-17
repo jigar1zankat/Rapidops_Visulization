@@ -5,33 +5,29 @@
         .module('MeanApp')
         .controller('ShowOrganizationController', ShowOrganizationCtrl).filter('startFrom',startFrom);
 
-    ShowOrganizationCtrl.$inject = ['$scope', 'Auth', '$state', '$window','$cookieStore','$rootScope'];
+    ShowOrganizationCtrl.$inject = ['$scope', 'Auth', '$state', '$window','$cookieStore','$rootScope','cfpLoadingBar'];
 
-    function ShowOrganizationCtrl($scope, Auth, $state, $window,$cookies,$rootScope) {
+    function ShowOrganizationCtrl($scope, Auth, $state,cfpLoadingBar, $window,$cookies,$rootScope) {
+
+
 
         $scope.organization = {};
         $scope.organizations = [];
-
         $scope.currentPage = 0;
         $scope.pageSize = 100;
         $scope.data = [];
+
         $scope.numberOfPages=function(){
-            return Math.ceil($scope.organizations.length/$scope.pageSize);
+            return Math.ceil($scope.counter/$scope.pageSize);
         };
 
+        $scope.org_location = function(page) {
+            if(page>=0){$scope.currentPage=page}else{ console.log("error in page")}
 
+            console.log("current page",$scope.currentPage);
+            $scope.search_value = "location";
 
-
-
-
-
-        $scope.org_location = function(location,page) {
-
-           // console.log("user",$scope.user);
-          //  $scope.submitted = true;
-
-           // if (form.$valid) {
-                Auth.getOrganizationByLocation(location,page,function(err,data){
+                Auth.getOrganizationByLocation($scope.location,page,function(err,data){
                     if(err)
                     {
                         console.log(err+ "err n data "  +data);
@@ -40,6 +36,7 @@
                     else {
                         console.log(" data "  ,data);
                         console.log('success');
+                        $scope.counter=data.count;
                         $scope.organization=data.data;
                         $scope.organizations=data.data;
                         $state.go('app.showorganization');
@@ -50,13 +47,11 @@
            // }
         };
 
-        $scope.org_name = function(name,page) {
+        $scope.org_name = function(page) {
+            if(page>=0){$scope.currentPage=page}else{ console.log("error in page")}
+            $scope.search_value = "name";
 
-            // console.log("user",$scope.user);
-            //  $scope.submitted = true;
-
-            // if (form.$valid) {
-            Auth.getOrganizationByName(name,page,function(err,data){
+            Auth.getOrganizationByName($scope.name,page,function(err,data){
                 if(err)
                 {
                     console.log(err+ "err n data "  +data);
@@ -65,6 +60,7 @@
                 else {
                     console.log(" data "  ,data);
                     console.log('success');
+                    $scope.counter=data.count;
                     $scope.organization=data.data;
                     $scope.organizations=data.data;
                     $state.go('app.showorganization');
@@ -75,11 +71,27 @@
             });
             // }
         };
-        //
-        //for (var i=0; i<20000; i++) {
-        //    $scope.data.push("Item "+i);
-        //}
+        $scope.identifire=function(page) {
+            if($scope.search_value=="location"){
+                console.log("page in identifire",page);
+                $scope.org_location(page);
 
+            }
+            else{
+                $scope.org_name(page);
+
+            }
+        };
+
+        //$scope.start = function() {
+        //    cfpLoadingBar.start();
+        //};
+        //
+        //$scope.complete = function () {
+        //    cfpLoadingBar.complete();
+        //};
+        ////assuming this should start the loader
+        //$scope.start();
 
     }
     function startFrom() {

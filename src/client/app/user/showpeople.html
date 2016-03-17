@@ -12,14 +12,14 @@
             <div class="panel-body">
                 <div class="col-md-4 col-lg-offset-2">
                     <input type="text" id="Field1" placeholder="People Name" ng-model="name">
-                    <button type="button" class="btn btn-info span1" ng-click="people_name(name,currentPage+1)">Search</button>
+                    <button type="button" class="btn btn-info span1" ng-click="people_name(0)">Search</button>
                 </div>
 
                 <div class="col-lg-offset-2">
                     <input type="text" id="Field2" placeholder="Region by City or Country" ng-model="location" >
-                    <button type="button" class="btn btn-info span1" ng-click="people_location(location,currentPage+1)">Search</button>
+                    <button type="button" class="btn btn-info span1" ng-click="people_location(0)">Search</button>
                 </div>
-                <table class="table"  style="margin-top: 25px">
+                <table class="table" ng-show="peoples[0]" style="margin-top: 25px">
                     <tr>
                         <th>
                             Type
@@ -43,7 +43,7 @@
                             Organizations
                         </th>
                     </tr>
-                    <tr ng-repeat="ppl in peoples| startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <tr ng-repeat="ppl in peoples">
                         <td>
                            {{ppl.type}}
                         </td>
@@ -67,16 +67,17 @@
                         </td>
                     </tr>
                 </table>
+                <h1 align="center" ng-show="!peoples[0]">Data Not Available</h1>
 
-
-                <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+<div ng-show="peoples[0]">
+                <button  ng-disabled="currentPage == 0" ng-click="identifire(currentPage-1)">
                     Previous
                 </button>
-                {{currentPage+1}}/{{numberOfPages()}}
-                <button ng-disabled="currentPage >= peoples.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                {{currentPage}}/{{numberOfPages()-1}}
+                <button ng-disabled="currentPage == numberOfPages()-1" ng-click="identifire(currentPage+1)">
                     Next
                 </button>
-
+</div>
 
             </div>
         </div>

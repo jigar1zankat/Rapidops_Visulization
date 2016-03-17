@@ -3,7 +3,7 @@
 
   angular
     .module('MeanApp', [
-      'ui.router','ngLodash','ngCookies'
+      'ui.router','ngLodash','ngCookies','angular-loading-bar'
     ]);
 
 })();
