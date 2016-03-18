@@ -19,7 +19,7 @@ console.log("calling people by location",people_city);
         }});
 
 
-    function getDatas(counter){ People.find({$or: [ { "location_city":  people_city  }, { "location_region":  people_city  } ,{"location_country_code":people_city}]},function(err, user) {
+    function getDatas(counter){ People.find({$or: [ { "location_city": new RegExp('^'+people_city+'$', "i")}, { "location_region":  new RegExp('^'+people_city+'$', "i")} ,{"location_country_code":new RegExp('^'+people_city+'$', "i")}]},function(err, user) {
         if (err) return res.status(500).send(err);
         if (!user) {
             res.status(401).json({
@@ -55,7 +55,7 @@ exports.getPeopleByName = function(req, res) {
 
 
     function getDatas(counter){
-        People.find({$or: [ { "first_name":  people_name  }, { "last_name":  people_name }]},function(err, user) {
+        People.find({$or: [ { "first_name":  new RegExp('^'+people_name+'$', "i")  }, { "last_name":  new RegExp('^'+people_name+'$', "i")}]},function(err, user) {
             if (err) return res.status(500).send(err);
             if (!user) {
                 res.status(401).json({
@@ -91,7 +91,7 @@ exports.getOrganizationByLocation = function(req, res) {
         }});
 
 
-    function getDatas(counter){Organization.find({$or: [ { "location_city":  organization_city  }, { "location_region":  organization_city  } ,{"location_country_code":organization_city}]},function(err, user) {
+    function getDatas(counter){Organization.find({$or: [ { "location_city":  new RegExp('^'+organization_city+'$', "i")  }, { "location_region":  new RegExp('^'+organization_city+'$', "i")  } ,{"location_country_code":new RegExp('^'+organization_city+'$', "i")}]},function(err, user) {
         if (err) return res.status(500).send(err);
         if (!user) {
             console.log("in if error");
@@ -127,7 +127,7 @@ exports.getOrganizationByName = function(req, res) {
         }});
 
 
-function getDatas(counter){ Organization.find( { "name": organization_name  },function(err, user) {
+function getDatas(counter){ Organization.find( { "name": new RegExp('^'+organization_name+'$', "i")  },function(err, user) {
     if (err) return res.status(500).send(err);
     if (!user) {
         res.status(401).json({
