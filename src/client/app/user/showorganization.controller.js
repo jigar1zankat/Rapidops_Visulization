@@ -18,6 +18,7 @@
         $scope.data = [];
 
         $scope.numberOfPages=function(){
+
             return Math.ceil($scope.counter/$scope.pageSize);
         };
 
