@@ -1,0 +1,29 @@
+#loading-bar-spinner {
+    display: block;
+    position: fixed;
+    z-index: 10002;
+    top:0px;
+    left:0px;
+    text-align:center;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+}
+
+#loading-bar-spinner .spinner-icon {
+    display:inline-block;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid transparent;
+    border-left-color: #0066ff;
+    -webkit-animation: loading-bar-spinner 1.1s linear infinite;
+    -moz-animation:    loading-bar-spinner 1.1s linear infinite;
+    -ms-animation:     loading-bar-spinner 1.1s linear infinite;
+    -o-animation:      loading-bar-spinner 1.1s linear infinite;
+    animation:         loading-bar-spinner 1.1s linear infinite;
+}

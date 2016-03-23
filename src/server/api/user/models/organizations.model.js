@@ -6,7 +6,6 @@ var Schema = mongoose.Schema;
  * @type {*|Schema}
  */
 var UserSchema = new Schema({
-    "_id" :String ,
     "crunchbase_uuid" :String ,
     "type" :String ,
     "primary_role" : String,

@@ -1,0 +1,189 @@
+<div>
+
+    <div class="">
+
+        <div class="container">
+            <div class="panel panel-default" style="margin-top: 10px">
+                <div class="panel-heading">
+                    <h2 align="center"><b>Details of {{ org.name}} {{ org.primary_role}}</b></h2>
+
+                </div>
+                <div class="panel-body">
+
+
+
+                    <table class="table"  style="margin-top: 25px">
+
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+
+                            <td>
+                                {{org._id}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Crunchbase_uuid
+                            </th>
+
+                            <td>
+                                {{ org.crunchbase_uuid}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Type
+                            </th>
+
+                            <td>
+                                {{org.type}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+
+                            <td>
+                                {{ org.name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Primary Role
+                            </th>
+
+                            <td>
+                                {{ org.primary_role}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                City
+                            </th>
+
+                            <td>
+                                {{org.location_city}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Region
+                            </th>
+
+                            <td>
+                                {{org.location_region}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Country
+                            </th>
+
+                            <td>
+                                {{org.location_country_code}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Homepage Url
+                            </th>
+
+                            <td>
+                                {{ org.homepage_url}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Facebook Url
+                            </th>
+
+                            <td>
+                                {{org.facebook_url}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Twitter Url
+                            </th>
+
+                            <td>
+                                {{org.twitter_url}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Linkedin Url
+                            </th>
+
+                            <td>
+                                {{org.linkedin_url}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Crunchbase URL
+                            </th>
+
+                            <td>
+                                {{ org.crunchbase_url}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Profile Image Url
+                            </th>
+
+                            <td>
+                                {{org.profile_image_url}}
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th>
+                                Stock Symbol
+                            </th>
+
+                            <td>
+                                {{org.stock_symbol}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Short Description
+                            </th>
+
+                            <td>
+                                {{org.short_description}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Funfind Round Name
+                            </th>
+                            <td>
+                                {{org.funding_round_name}}
+                            </td>
+                        </tr>
+
+
+
+
+                        <!--<tr ng-repeat="ppl in peoples">-->
+
+                    </table>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

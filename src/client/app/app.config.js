@@ -10,21 +10,22 @@
     run.$inject = ['$rootScope', '$location', 'Auth', '$cookies'];
 
     function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+
         $urlRouterProvider.otherwise('/app/home');
 
         $stateProvider
             .state('app', {
-                url : '/app',
-                abstract : true,
+                url: '/app',
+                abstract: true,
                 templateUrl: 'app/layout/layout.html'
             })
             .state('app.home', {
-                url:'/home',
+                url: '/home',
                 views: {
-                    'header' : {
+                    'header': {
                         templateUrl: 'app/user/header.html'
                     },
-                    'main' : {
+                    'main': {
                         templateUrl: 'app/user/home.html',
                         controller: 'HomeController'
                     }
@@ -35,12 +36,12 @@
             })
 
             .state('app.showorganization', {
-                url:'/showorganization',
+                url: '/showorganization',
                 views: {
-                    'header' : {
+                    'header': {
                         templateUrl: 'app/user/header.html'
                     },
-                    'main' : {
+                    'main': {
                         templateUrl: 'app/user/showorganization.html',
                         controller: 'ShowOrganizationController'
 
@@ -48,11 +49,11 @@
                 }
 
             })
-            .state('app.showpeople',{
-                url:'/showpeople',
-                views:{
+            .state('app.showpeople', {
+                url: '/showpeople',
+                views: {
                     'header': {
-                        templateUrl:'app/user/header.html'
+                        templateUrl: 'app/user/header.html'
                     },
                     'main': {
                         templateUrl: 'app/user/showpeople.html',
@@ -60,11 +61,35 @@
                     }
                 }
             })
-            .state('app.new',{
-                url:'/new',
-                views:{
+            .state('app.personDetails', {
+                url: '/personDetails/:id',
+                views: {
                     'header': {
-                        templateUrl:'app/user/header.html'
+                        templateUrl: 'app/user/header.html'
+                    },
+                    'main': {
+                        templateUrl: 'app/user/personDetails.html',
+                        controller: 'personDetailsController'
+                    }
+                }
+            })
+            .state('app.organizationDetails', {
+                url: '/organizationDetails/:id',
+                views: {
+                    'header': {
+                        templateUrl: 'app/user/header.html'
+                    },
+                    'main': {
+                        templateUrl: 'app/user/organizationDetails.html',
+                        controller: 'organizationDetailsController'
+                    }
+                }
+            })
+            .state('app.new', {
+                url: '/new',
+                views: {
+                    'header': {
+                        templateUrl: 'app/user/header.html'
                     },
                     'main': {
                         templateUrl: 'app/user/new.html',
@@ -72,9 +97,20 @@
                     }
                 }
             })
+
+
+
+
     }
+
+    //.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    //    cfpLoadingBarProvider.includeBar = false;
+    //}]);
     function run($rootScope, $location, Auth, $cookies, $scope, $cookieStore ) {
 
 
     }
+
+
+
 })();
